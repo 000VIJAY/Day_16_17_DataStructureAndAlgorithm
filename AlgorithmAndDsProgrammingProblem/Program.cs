@@ -1,4 +1,8 @@
 ﻿using AlgorithmAndDsProgrammingProblem;
-String str = "ABC";
-int n = str.Length;
-Permutation.permute(str, 0, n - 1);
+BinarySearch Search = new BinarySearch();
+Console.WriteLine("Hello, to the algorithm and data structure problems");
+Console.WriteLine("Enter a sentence");
+String s = Console.ReadLine();
+Console.WriteLine("Enter the word you want to search");
+String search = Console.ReadLine();
+Search.sortAndCall(s,search);

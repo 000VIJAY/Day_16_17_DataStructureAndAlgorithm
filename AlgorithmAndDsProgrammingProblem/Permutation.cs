@@ -5,31 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlgorithmAndDsProgrammingProblem
-{
-    public class Permutation
+{ 
+    public class BinarySearch
     {
-        public static void permute(String a ,int l, int r)
+        public void sortAndCall(String sentence, String find)         //find specifies the word to be searched
         {
-            if (l == r)
-                Console.WriteLine(a);
-            else
+            String[] words = sentence.Split(' ');          //storing the string in an array of strings
+            Array.Sort(words);
+            BinarySearch.search(words, find);                    //calling the searching function
+        }
+        public static void search(String[] sen, String find)         //Binary Search
+        {
+            int min = 0;
+            int max = sen.Length - 1;
+            int flag = 0;
+            while (min <= max)
             {
-                for (int i = l; i <= r; i++)
+                int mid = (min + max) / 2;
+                if (sen[mid].CompareTo(find) == 0)
                 {
-                    a = swap(a, l, i);
-                    permute(a, l + 1, r);
+                    flag = 1;
+                    Console.WriteLine("Found at " + mid + " position ");
+                    break;
+                }
+                else if (sen[mid].CompareTo(find) > 0)
+                {
+                    max = mid - 01;
+                }
+                else
+                {
+                    min = mid + 1;
                 }
             }
-        }
-        public static String swap(String b, int i, int j)
-        {
-            char temp;
-            char[] charArray = b.ToCharArray();
-            temp = charArray[i];
-            charArray[i] = charArray[j];
-            charArray[j] = temp;
-            string s = new string(charArray);
-            return s;
+            if (flag == 0)
+            {
+                Console.WriteLine("Not found");
+            }
         }
     }
+
 }
