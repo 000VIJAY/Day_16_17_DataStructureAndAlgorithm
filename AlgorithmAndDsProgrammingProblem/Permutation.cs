@@ -8,33 +8,34 @@ namespace AlgorithmAndDsProgrammingProblem
 { 
     public class BinarySearch
     {
-        public void sortAndCall(String sentence, String find)         //find specifies the word to be searched
+        public void SortingAndCalling(String sentence, String find)    
         {
-            String[] words = sentence.Split(' ');          //storing the string in an array of strings
-            Array.Sort(words);
-            BinarySearch.search(words, find);                    //calling the searching function
+            String[] word = sentence.Split(' ');        
+            Array.Sort(word);
+            BinarySearch.Search(word, find);                    //search function
         }
-        public static void search(String[] sen, String find)         //Binary Search
+        //Binary Search
+        public static void Search(String[] sentenceOne, String find)        
         {
-            int min = 0;
-            int max = sen.Length - 1;
+            int minIndex = 0;
+            int maxIndex = sentenceOne.Length - 1;
             int flag = 0;
-            while (min <= max)
+            while (minIndex <= maxIndex)
             {
-                int mid = (min + max) / 2;
-                if (sen[mid].CompareTo(find) == 0)
+                int mid = (minIndex + maxIndex) / 2;
+                if (sentenceOne[mid].CompareTo(find) == 0)
                 {
-                    flag = 1;
+                   flag = 1;
                     Console.WriteLine("Found at " + mid + " position ");
                     break;
                 }
-                else if (sen[mid].CompareTo(find) > 0)
+                else if (sentenceOne[mid].CompareTo(find) > 0)
                 {
-                    max = mid - 01;
+                    maxIndex = mid - 01;
                 }
                 else
                 {
-                    min = mid + 1;
+                    minIndex = mid + 1;
                 }
             }
             if (flag == 0)
