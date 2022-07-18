@@ -6,30 +6,31 @@ using System.Threading.Tasks;
 
 namespace AlgorithmAndDsProgrammingProblem
 {
-    public class Permutation
+    public class BubbleSort
     {
-        public static void permute(String a ,int l, int r)
+        public void SortBubble(params int[] num)
         {
-            if (l == r)
-                Console.WriteLine(a);
-            else
+            for (int j = 0; j < num.Length-1; j++)
             {
-                for (int i = l; i <= r; i++)
+                for (int i = 0; i < (num.Length-j) - 1; i++)
                 {
-                    a = swap(a, l, i);
-                    permute(a, l + 1, r);
+                    if (num[i] > num[i + 1])
+                    {
+                        int temp = num[i];
+                        num[i] = num[i + 1];
+                        num[i + 1] = temp;
+                    }
                 }
             }
+           PrintArray(num);
         }
-        public static String swap(String b, int i, int j)
+        public void PrintArray(int[] num)
         {
-            char temp;
-            char[] charArray = b.ToCharArray();
-            temp = charArray[i];
-            charArray[i] = charArray[j];
-            charArray[j] = temp;
-            string s = new string(charArray);
-            return s;
+            for (int i = 0; i < num.Length; ++i)
+                Console.Write(num[i] + " ");
+            Console.WriteLine();
         }
     }
 }
+
+

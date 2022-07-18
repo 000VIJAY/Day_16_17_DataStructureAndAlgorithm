@@ -1,4 +1,4 @@
 ﻿using AlgorithmAndDsProgrammingProblem;
-String str = "ABC";
-int n = str.Length;
-Permutation.permute(str, 0, n - 1);
+BubbleSort newsh = new BubbleSort(); 
+int[] arr = { 2,3,45,6,7,89,9,3 };
+newsh.SortBubble(arr);
